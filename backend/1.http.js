@@ -1,13 +1,15 @@
-const express = require("express");
-const procesos = require("./mocks/procesos.json");
-const { validateProcess } = require("./schemas/procesos");
-const cryp = require("node:crypto");
+import express, { json } from "express";
+import { validateProcess } from "./schemas/procesos.js";
+import { randomUUID } from "node:crypto";
+import fs from "node:fs";
+
+const procesos = JSON.parse(fs.readFileSync("./mocks/procesos.json", "utf-8"));
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
 app.disable("x-powered-by");
 
-app.use(express.json());
+app.use(json());
 
 app.get("/api/procesos", (req, res) => {
   const { userId } = req.query;
@@ -33,7 +35,7 @@ app.post("/api/procesos", (req, res) => {
 
   //  Insert new process
   const newProcess = {
-    id: cryp.randomUUID(),
+    id: randomUUID(),
     ...validatedProcess.data,
   };
 

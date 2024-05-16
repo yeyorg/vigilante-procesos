@@ -5,7 +5,7 @@ Content-Type: application/json
   "message": "Hola mundo",
   "timestap": 22,
   "userId": 1,
-  "numeroRadicado": 1234567890000000000000
+  "numeroRadicado": "1234567890000000000000"
 }
 
 ###
