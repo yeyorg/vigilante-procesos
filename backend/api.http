@@ -1,4 +1,4 @@
-POST http://localhost:3000/api/procesos
+POST http://localhost:3000/procesos
 Content-Type: application/json
 
 {
@@ -9,4 +9,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/procesos?userId=1
+GET http://localhost:3000/procesos?userId=1
