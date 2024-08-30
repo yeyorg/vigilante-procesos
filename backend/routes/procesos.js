@@ -1,23 +1,14 @@
 import { Router } from "express";
-import { readJSON } from "../utils.js";
 import { validateProcess } from "../schemas/procesos.js";
 import { randomUUID } from "node:crypto";
-
-const procesos = readJSON("./mocks/procesos.json");
+import { ProcessModel } from "../models/process.js";
 
 export const processRouter = Router();
 
-processRouter.get("/", (req, res) => {
+processRouter.get("/", async (req, res) => {
   const { userId } = req.query;
-
-  if (userId) {
-    const filteredProcess = procesos.filter(
-      //  userId is an Integer
-      (process) => process.userId === +userId
-    );
-    return res.json(filteredProcess);
-  }
-  res.json(procesos);
+  const filteredProcess = await ProcessModel.getById({ userId });
+  return res.json(filteredProcess);
 });
 
 processRouter.post("/", (req, res) => {
