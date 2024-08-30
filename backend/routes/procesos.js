@@ -1,11 +1,9 @@
 import { Router } from "express";
-import { createRequire } from "node:module";
+import { readJSON } from "../utils.js";
 import { validateProcess } from "../schemas/procesos.js";
 import { randomUUID } from "node:crypto";
 
-const require = createRequire(import.meta.url);
-
-const procesos = require("../mocks/procesos.json");
+const procesos = readJSON("./mocks/procesos.json");
 
 export const processRouter = Router();
 
