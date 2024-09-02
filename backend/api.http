@@ -2,11 +2,9 @@ POST http://localhost:3000/procesos
 Content-Type: application/json
 
 {
-  "message": "Hola mundo",
-  "timestap": 22,
   "userId": 1,
   "numeroRadicado": "1234567890000000000000"
 }
 
 ###
-GET http://localhost:3000/procesos?userId=1
+GET http://localhost:3000/procesos
