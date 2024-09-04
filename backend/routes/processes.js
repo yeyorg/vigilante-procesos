@@ -3,7 +3,7 @@ import { ProcessController } from "../controllers/ProcessController.js";
 
 export const processRouter = Router();
 
-processRouter.get("/", ProcessController.getAll);
+processRouter.get("/", ProcessController.getProcesses);
 
 processRouter.get("/:id", ProcessController.getById);
 

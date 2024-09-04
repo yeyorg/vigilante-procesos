@@ -1,21 +1,21 @@
 import { readJSON } from "../utils.js";
 import { randomUUID } from "node:crypto";
 
-const procesos = readJSON("./mocks/procesos.json");
+const processes = readJSON("./mocks/procesos.json");
 
 export class ProcessModel {
   static async getAll() {
-    return procesos;
+    return processes;
   }
 
   static async getById({ id }) {
     if (id) {
-      return procesos.filter(
+      return processes.filter(
         //  id is an Integer
-        (process) => process.id === id
+        (process) => process.id === +id
       );
     }
-    return procesos;
+    return processes;
   }
 
   static async create({ input }) {
@@ -24,7 +24,7 @@ export class ProcessModel {
       id: randomUUID(),
       ...input,
     };
-    procesos.push(newProcess);
+    processes.push(newProcess);
     return newProcess;
   }
 }

@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { processRouter } from "./routes/procesos.js";
+import { processRouter } from "./routes/processes.js";
 import { corsMiddleware } from "./middlewares/corsMiddleware.js";
 const app = express();
 const PORT = process.env.PORT ?? 3000;

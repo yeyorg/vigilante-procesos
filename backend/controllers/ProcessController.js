@@ -1,8 +1,8 @@
 import { ProcessModel } from "../models/ProcessModel.js";
-import { validateProcess } from "../schemas/procesos.js";
+import { validateProcess } from "../schemas/processes.js";
 
 export class ProcessController {
-  static async getAll(req, res) {
+  static async getProcesses(req, res) {
     return res.json(await ProcessModel.getAll());
   }
 
